@@ -1,0 +1,34 @@
+<nav class="breadcrumb" aria-label="Ruta de navegación">
+  <a routerLink="/">Inicio</a> / <a routerLink="/noticias">Noticias</a> / <span>{{ noticia()?.nombre ?? 'Detalle' }}</span>
+</nav>
+
+@if (servicio.cargando()) {
+  <main class="detail-body"><p class="empty-state">Cargando noticia...</p></main>
+} @else if (noticia(); as n) {
+  @if (n.imagen) {
+    <div class="detail-image"><img [src]="n.imagen" [alt]="'Foto de ' + n.nombre" /></div>
+  }
+  <main class="detail-body">
+    <h1>{{ n.nombre }}</h1>
+    <p class="card-meta">{{ n.raza }} · {{ n.fecha | date: 'longDate' }}</p>
+    @for (parrafo of n.contenido; track $index) {
+      <p>{{ parrafo }}</p>
+    }
+    <div class="detail-actions">
+      <button
+        type="button"
+        class="btn"
+        [class.btn-accent]="favoritos.esFavorito(n.id)"
+        [class.btn-outline]="!favoritos.esFavorito(n.id)"
+        [attr.aria-pressed]="favoritos.esFavorito(n.id)"
+        (click)="favoritos.alternar(n.id)"
+      >{{ favoritos.esFavorito(n.id) ? 'En favoritos ♥' : 'Agregar a favoritos' }}</button>
+      <a class="btn btn-outline" routerLink="/contacto">Contactar sobre esta historia</a>
+    </div>
+  </main>
+} @else {
+  <main class="detail-body">
+    <p class="empty-state">No se encontró la noticia solicitada.</p>
+    <a class="btn btn-outline" routerLink="/noticias">Volver a noticias</a>
+  </main>
+}

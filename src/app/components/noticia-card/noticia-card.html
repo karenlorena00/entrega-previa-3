@@ -1,0 +1,38 @@
+@let n = noticia();
+@let favorito = favoritos.esFavorito(n.id);
+
+<article class="card">
+  @if (n.imagen) {
+    <div class="card-image"><img [src]="n.imagen" [alt]="'Foto de ' + n.nombre" loading="lazy" /></div>
+  } @else {
+    <div class="card-image" role="img" [attr.aria-label]="'Sin imagen para ' + n.nombre"></div>
+  }
+  <div class="card-body">
+    <h3 class="card-title">{{ n.nombre }}</h3>
+    <p class="card-meta">{{ n.raza }} · {{ n.fecha | date: 'longDate' }}</p>
+    <p class="card-text">{{ n.resumen }}</p>
+    <div class="card-actions">
+      <a class="btn btn-outline" [routerLink]="['/noticias', n.id]">Ver más</a>
+      <div class="card-buttons">
+        <button
+          type="button"
+          class="fav-btn"
+          [class.is-active]="favorito"
+          [title]="favorito ? 'Quitar de favoritos' : 'Agregar a favoritos'"
+          [attr.aria-label]="favorito ? 'Quitar de favoritos' : 'Agregar a favoritos'"
+          [attr.aria-pressed]="favorito"
+          (click)="alternarFavorito()"
+        >{{ favorito ? '♥' : '♡' }}</button>
+        @if (mostrarEliminar()) {
+          <button
+            type="button"
+            class="delete-btn"
+            title="Eliminar noticia"
+            aria-label="Eliminar noticia"
+            (click)="eliminar.emit(n.id)"
+          >&times;</button>
+        }
+      </div>
+    </div>
+  </div>
+</article>

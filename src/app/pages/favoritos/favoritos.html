@@ -1,0 +1,20 @@
+<section class="page-header">
+  <h1>Mis favoritos</h1>
+  <p>Las historias que has guardado para volver a leer</p>
+</section>
+
+<main class="section">
+  <div class="cards-grid">
+    @if (servicio.cargando()) {
+      <p class="empty-state">Cargando favoritos...</p>
+    } @else {
+      @for (noticia of guardadas(); track noticia.id) {
+        <app-noticia-card [noticia]="noticia" />
+      } @empty {
+        <p class="empty-state">
+          Aún no tienes noticias favoritas. Explora el <a routerLink="/noticias"><strong>listado de noticias</strong></a> y marca las que te gusten con el corazón.
+        </p>
+      }
+    }
+  </div>
+</main>
