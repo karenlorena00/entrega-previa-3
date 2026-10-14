@@ -2,7 +2,7 @@
 
 Historias reales de perros rescatados que hoy acompañan a pacientes oncológicos en hospitales. Una plataforma para conocer sus viajes de rehabilitación y el impacto que dejan.
 
-**[Entra aquí](https://karenlorena00.github.io/entrega-previa-3/)** | **[Ver video](docs/Entrega%20Final.docx)** | **[Documento](docs/Entrega%20Final.docx)**
+**[→ Entra aquí](https://karenlorena00.github.io/entrega-previa-3/)**
 
 ## ¿Qué es esto?
 
@@ -78,10 +78,5 @@ No tienes que hacer nada manual.
 
 ## Créditos
 
-- **Fotos de Eva y Kloey:** las autoras
-- **Fotos de Oreo, Niko, Toby y Zoe:** [Dog CEO API](https://dog.ceo/dog-api/) (para uso académico)
-- **Diseños originales:** Figma, ver en `docs/mockups/`
-
----
-
-Entrega final • Módulo Desarrollo Front-End • Politécnico Grancolombiano
+- Fotos de Eva y Kloey: las autoras
+- Fotos de Oreo, Niko, Toby y Zoe: [Dog CEO API](https://dog.ceo/dog-api/)
