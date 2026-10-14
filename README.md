@@ -1,175 +1,87 @@
-# 🐾 Patitas que Sanan
+# Patitas que Sanan
 
-> **Historias de resiliencia y amor:** conoce a los perros rescatados que transforman vidas a través de la zooterapia.
+Historias reales de perros rescatados que hoy acompañan a pacientes oncológicos en hospitales. Una plataforma para conocer sus viajes de rehabilitación y el impacto que dejan.
 
-<div align="center">
+**[Entra aquí](https://karenlorena00.github.io/entrega-previa-3/)** | **[Ver video](docs/Entrega%20Final.docx)** | **[Documento](docs/Entrega%20Final.docx)**
 
-[![Angular 20](https://img.shields.io/badge/Angular-20-dd0031?style=flat-square&logo=angular)](https://angular.dev)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.2-3178c6?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
-[![GitHub Pages](https://img.shields.io/badge/Hosting-GitHub%20Pages-white?style=flat-square&logo=github)](https://pages.github.com)
-[![License](https://img.shields.io/badge/License-Educational-blue?style=flat-square)](LICENSE)
+## ¿Qué es esto?
 
-**[🌐 Visita la aplicación](https://karenlorena00.github.io/entrega-previa-3/)** • **[📹 Ver video](docs/Entrega%20Final.docx)** • **[📄 Documento APA](docs/Entrega%20Final.docx)**
+Es la entrega final de un proyecto del Politécnico Grancolombiano. Empezó con unos mockups en Figma, pasó a ser un sitio con HTML, CSS y JavaScript, y ahora es una app en **Angular** con componentes que se reutilizan, datos centralizados, y publicación automática cada vez que subes código a GitHub.
 
-</div>
+## Qué puedes hacer
 
----
+- **Inicio:** ve las 3 historias destacadas al llegar.
+- **Noticias:** listado de todos los casos, con buscador en vivo. Puedes agregar nuevas historias y eliminar las que quieras.
+- **Detalle de una historia:** lee la historia completa de cada perro.
+- **Favoritos:** marca historias con el corazón para guardarlas. Se quedan guardadas aunque cierres el navegador.
+- **Contacto:** formulario para escribir a la fundación (con validaciones).
+- **Sobre nosotros:** quiénes son y qué hacen.
+- Funciona en celular, tablet y desktop.
 
-## 🎯 ¿De qué va esto?
-
-Una plataforma web que comparte las historias de rescate y rehabilitación de perros entrenados en **zooterapia**: animales que brindaron compañía emocional a pacientes oncológicos en hospitales. 
-
-Es la **versión final** del módulo *Desarrollo Front-End* del Politécnico Grancolombiano. Comenzó como mockups en Figma, pasó a HTML + CSS + JavaScript, y ahora es una **aplicación interactiva en Angular** con componentes reutilizables, gestión de datos centralizada y despliegue automático.
-
-## ✨ Características
-
-<table>
-  <tr>
-    <td width="50%">
-
-### 🏠 Inicio
-Bienvenida + 3 historias destacadas para captar atención al llegar.
-
-### 📰 Noticias
-- Listado completo de todos los casos
-- 🔍 Buscador en **vivo** (escribe, filtra al instante)
-- ➕ **Crear** nuevas noticias con formulario
-- ❌ **Eliminar** historias (con confirmación)
-
-### ❤️ Favoritos
-Marca con el corazón las historias que quieres releer. **Persisten** al cerrar el navegador.
-
-    </td>
-    <td width="50%">
-
-### 📖 Detalle
-Lee la historia completa de cada perro: quién fue rescatado, cómo se rehabilitó y el impacto que dejó.
-
-### 📞 Contacto
-Formulario para escribir a la fundación.
-- Validaciones (campos obligatorios, email válido)
-- Confirmación al enviar
-
-### ℹ️ Sobre nosotros
-La misión y el contexto de la fundación.
-
-    </td>
-  </tr>
-</table>
-
-📱 **Diseño responsive** — se ve bien en celular, tablet y desktop.
-
-## 🏗️ Cómo está construida
-
-### Estructura de carpetas
+## Cómo está organizado
 
 ```
-📁 src/app/
- ├─ 📋 models/
- │  └─ noticia.ts                 Interface: forma de un dato de noticia
- ├─ 🔌 services/
- │  ├─ noticias.service.ts        Lee JSON + CRUD (crear/eliminar)
- │  ├─ favoritos.service.ts       Guarda ❤️ en localStorage
- │  └─ storage.ts                 Helpers para localStorage
- ├─ 🧩 components/
- │  ├─ header/  footer/           Barra y pie (reutilizados)
- │  └─ noticia-card/              Tarjeta 1x, usada 3 veces
- ├─ 📄 pages/
- │  ├─ home/  noticias/  detalle/  favoritos/  contacto/  sobre-nosotros/
- ├─ 🛣️  app.routes.ts             Las 6 rutas + ruta de inicio
- └─ ⚙️  app.config.ts             Configuración (router, HTTP, idioma)
- 
- 📁 public/
-  ├─ data/noticias.json           6 perros + sus historias
-  └─ img/                         Fotos de los perros
- 
- 📁 docs/
-  ├─ Entrega Final.docx           Documento APA
-  ├─ guion-video.md               Script del video
-  └─ mockups/                     Diseños originales en Figma
+src/app/
+├── models/           tipos de datos (qué es una noticia)
+├── services/         la lógica compartida (favoritos, noticias)
+├── components/       piezas que se reutilizan (encabezado, tarjeta)
+├── pages/            las 6 vistas principales
+├── app.routes.ts     dónde va cada ruta
+└── app.config.ts     configuración global
+
+public/
+├── data/noticias.json    las 6 historias
+└── img/                  las fotos
+
+docs/
+├── Entrega Final.docx    el documento
+├── guion-video.md        ideas para grabar
+└── mockups/              los diseños originales
 ```
 
-### Angular en acción
+## Lo que cambió vs. HTML puro
 
-Lo que hace **fuerte** a Angular en este proyecto:
+| Antes (HTML + JS) | Ahora (Angular) |
+|---|---|
+| 6 archivos HTML con encabezado copiado en cada uno | 1 HTML + componentes reutilizables |
+| Tarjeta de noticia pintada 3 veces con código repetido | Componente `noticia-card` usado 3 veces |
+| JavaScript manipulando DOM: `innerHTML = '<div>...'` | Binding: `{{ noticia.nombre }}` |
+| Favoritos: función `obtenerFavoritos()` suelta | Servicio `FavoritosService` + signals (se actualiza sola) |
+| Navegar entre páginas: links `.html` | Rutas Angular (sin recargar) |
+| Mini CRUD: código escrito pero no conectado | CRUD funcional: crear y eliminar noticias de verdad |
 
-| Concepto | Qué hace | Ejemplo |
-|---|---|---|
-| **Componentes** | Piezas reutilizables | `NoticiaCardComponent` usada 3 veces |
-| **Interpolación** `{{ }}` | Muestra datos | `{{ noticia.nombre }}` |
-| **Property binding** `[src]` | Asigna propiedades | `[src]="noticia.imagen"` |
-| **Event binding** `(click)` | Escucha clics | `(click)="marcarFavorito()"` |
-| **Two-way** `[(ngModel)]` | Sincroniza entrada ↔ datos | Buscador en vivo |
-| **@Input / @Output** | Padre ↔ Hijo | Tarjeta recibe noticia, avisa al padre |
-| **@if, @for, @empty** | Control de flujo | Lista vacía → "No hay favoritos" |
-| **Signals** | Datos reactivos | Cambias un favorito, la UI se actualiza sola |
-| **Servicios** | Lógica compartida | `NoticiasService`, `FavoritosService` |
-| **Rutas** | Navega sin recargar | `/noticias/:id` → detalle dinámico |
-| **Reactive Forms** | Formularios inteligentes | Validaciones automáticas en Contacto |
+## Cómo ejecutar en tu máquina
 
-## 🚀 Ejecutar localmente
-
-**Requisitos:** Node 20+ y npm
+Necesitas Node 20+ y npm instalados.
 
 ```bash
-# 1️⃣  Instalar dependencias
-npm install
+npm install              # instala las dependencias
 
-# 2️⃣  Correr en desarrollo (auto-reload)
-npm start
-# → Abre http://localhost:4200 en tu navegador
+npm start                # ejecuta en http://localhost:4200
+                         # verás cambios al instante cuando edites
 
-# 3️⃣  Compilar para producción
-npm run build
-# → Genera dist/patitas-que-sanan/browser/
+npm run build            # compila para producción
+                         # genera la carpeta dist/
 ```
 
-**Tip:** Al abrir en navegador, si ves una URL con `#/` (ej: `localhost:4200/#/noticias`), eso es normal. Permite que las rutas funcionen correctamente en GitHub Pages sin 404.
+Las rutas tendrán un `#/` en la URL (ej: `localhost:4200/#/noticias`). Eso es normal, permite que funcione bien en GitHub Pages.
+
+## Despliegue
+
+Está configurado para publicarse automáticamente en GitHub Pages. Cada vez que haces push a `main`:
+
+1. GitHub Actions ejecuta el workflow
+2. Compila la app con `ng build`
+3. Publica en https://karenlorena00.github.io/entrega-previa-3/
+
+No tienes que hacer nada manual.
+
+## Créditos
+
+- **Fotos de Eva y Kloey:** las autoras
+- **Fotos de Oreo, Niko, Toby y Zoe:** [Dog CEO API](https://dog.ceo/dog-api/) (para uso académico)
+- **Diseños originales:** Figma, ver en `docs/mockups/`
 
 ---
 
-## 🌍 Despliegue automático
-
-Cada vez que subes a `main`:
-
-```mermaid
-git push main → GitHub Actions compila → publica en Pages
-```
-
-**Cómo funciona:**
-1. Editas código y haces `git push`
-2. GitHub Actions ejecuta `.github/workflows/deploy.yml`
-3. Compila con `ng build --base-href /entrega-previa-3/`
-4. Publica automáticamente en **GitHub Pages**
-5. 🎉 Los cambios viven en https://karenlorena00.github.io/entrega-previa-3/
-
-Sin que tengas que compilar ni subir archivos manualmente.
-
----
-
-## 📸 Créditos
-
-| Foto | Origen |
-|---|---|
-| 🐕 **Eva** | Foto de las autoras |
-| 🐕 **Kloey** | Foto de las autoras |
-| 🐕 **Oreo, Niko, Toby, Zoe** | [Dog CEO API](https://dog.ceo/dog-api/) (uso académico) |
-| 🎨 **Diseño** | Figma, ver en `docs/mockups/` |
-
----
-
-## 📚 Referencias
-
-- [Angular Documentation](https://angular.dev)
-- [GitHub Pages](https://pages.github.com)
-- [Zooterapia en hospitales](https://www.ncbi.nlm.nih.gov/pubmed/) (contexto académico)
-
----
-
-<div align="center">
-
-**Hecho con ❤️ para el módulo Desarrollo Front-End**
-
-Politécnico Grancolombiano • 2026
-
-</div>
+Entrega final • Módulo Desarrollo Front-End • Politécnico Grancolombiano
